@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        #video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <video id="video" autoplay controls>
+        <source src="hehehe.mp4" type="video/mp4">
+    </video>
+
+    <script>
+        var video = document.getElementById("video");
+
+        // Hide video controls
+        video.controls = false;
+
+        // Start video playback on any click or key press
+        document.addEventListener("click", startPlayback);
+        document.addEventListener("keydown", startPlayback);
+
+        function startPlayback() {
+            video.play();
+            document.removeEventListener("click", startPlayback);
+            document.removeEventListener("keydown", startPlayback);
+        }
+
+        video.addEventListener("ended", function() {
+            // Redirect to another website after video ends
+            window.location.href = "https://b48-hqbz-ewgtln8em-wahyuzero.vercel.app";
+        });
+
+        // Check if the browser is Google Chrome or Microsoft Edge
+        var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+        var isEdge = /Edge/.test(navigator.userAgent);
+
+        // Pause the video if the browser is not Chrome or Edge
+        if (!isChrome && !isEdge) {
+            video.pause();
+        }
+    </script>
+</body>
+</html>
