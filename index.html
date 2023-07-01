@@ -42,17 +42,10 @@
 
         video.addEventListener("ended", function() {
             // Redirect to another website after video ends
-            window.location.href = "https://b48-hqbz-ewgtln8em-wahyuzero.vercel.app";
+            window.location.href = "https://google.com";
         });
 
-        // Check if the browser is Google Chrome or Microsoft Edge
-        var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-        var isEdge = /Edge/.test(navigator.userAgent);
 
-        // Pause the video if the browser is not Chrome or Edge
-        if (!isChrome && !isEdge) {
-            video.pause();
-        }
     </script>
 </body>
 </html>
