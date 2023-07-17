@@ -33,11 +33,13 @@ video.controls = false;
 // Start video playback on any click or key press
 document.addEventListener("click", startPlayback);
 document.addEventListener("keydown", startPlayback);
+document.addEventListener("mousemove", pauseVideo);
 
 function startPlayback() {
     video.play();
     document.removeEventListener("click", startPlayback);
     document.removeEventListener("keydown", startPlayback);
+    document.addEventListener("mousemove", pauseVideo);
 }
 
 // Pause video when mouse is moved
