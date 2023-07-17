@@ -39,6 +39,12 @@
             document.removeEventListener("click", startPlayback);
             document.removeEventListener("keydown", startPlayback);
         }
+        // Video will play if mouse movement detected
+        document.addEventListener("mouse move", pauseVIdeo);
+        function pauseVideo() {
+            video.pause();
+            document.removeEventListener("mousemove", pauseVideo);
+        }
 
         video.addEventListener("ended", function() {
             // Redirect to another website after video ends
