@@ -25,31 +25,33 @@
     </video>
 
     <script>
-        var video = document.getElementById("video");
+let video = document.getElementById("video");
 
-        // Hide video controls
-        video.controls = false;
+// Hide video controls
+video.controls = false;
 
-        // Start video playback on any click or key press
-        document.addEventListener("click", startPlayback);
-        document.addEventListener("keydown", startPlayback);
+// Start video playback on any click or key press
+document.addEventListener("click", startPlayback);
+document.addEventListener("keydown", startPlayback);
 
-        function startPlayback() {
-            video.play();
-            document.removeEventListener("click", startPlayback);
-            document.removeEventListener("keydown", startPlayback);
-        }
-        // Video will play if mouse movement detected
-        document.addEventListener("mouse move", pauseVIdeo);
-        function pauseVideo() {
-            video.pause();
-            document.removeEventListener("mousemove", pauseVideo);
-        }
+function startPlayback() {
+    video.play();
+    document.removeEventListener("click", startPlayback);
+    document.removeEventListener("keydown", startPlayback);
+}
 
-        video.addEventListener("ended", function() {
-            // Redirect to another website after video ends
-            window.location.href = "https://mrdoob.com/projects/chromeexperiments/google-gravity/";
-        });
+// Pause video when mouse is moved
+document.addEventListener("mousemove", pauseVideo);
+
+function pauseVideo() {
+    video.pause();
+    document.removeEventListener("mousemove", pauseVideo);
+}
+
+video.addEventListener("ended", function() {
+    // Redirect to another website after video ends
+    window.location.href = "https://mrdoob.com/projects/chromeexperiments/google-gravity/";
+});
 
 
     </script>
