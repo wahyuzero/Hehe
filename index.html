@@ -33,22 +33,16 @@ video.controls = false;
 // Start video playback on any click or key press
 document.addEventListener("click", startPlayback);
 document.addEventListener("keydown", startPlayback);
-document.addEventListener("mousemove", pauseVideo);
+document.addEventListener("mousemove", startPlayback);
 
 function startPlayback() {
     video.play();
     document.removeEventListener("click", startPlayback);
     document.removeEventListener("keydown", startPlayback);
-    document.addEventListener("mousemove", pauseVideo);
+    document.addEventListener("mousemove", startPlayback);
 }
 
-// Pause video when mouse is moved
-document.addEventListener("mousemove", pauseVideo);
 
-function pauseVideo() {
-    video.pause();
-    document.removeEventListener("mousemove", pauseVideo);
-}
 
 video.addEventListener("ended", function() {
     // Redirect to another website after video ends
